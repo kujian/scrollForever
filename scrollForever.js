@@ -1,9 +1,9 @@
 (function($) {
-	//plugin name: scrollForever
-	//plugin author: caibaojian
-	//plugin url: http://caibaojian.com/scrollForever
-	//plugin demo: http://caibaojian.com/demo/scrollForever/
-	//license: MIT
+	// plugin name: scrollForever
+	// plugin author: caibaojian
+	// plugin url: http://caibaojian.com/scrollForever
+	// plugin demo: http://caibaojian.com/demo/scrollForever/
+	// license: MIT
 	$.fn.scrollForever = function(options) {
 		var defaults = {
 			placeholder: 0,//非连续滚动时每次的滑动距离，可以自定义，如果没有自定义则根
