@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>无缝不间断向左滚动</title>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	ul{list-style: none;}
+	.nav{max-width: 800px; margin: 0 auto; padding:20px 0; display: flex; flex-flow:row wrap; justify-content:space-around; border-bottom: 1px solid #ddd;}
+	.nav a{font-size: 14px; color: #333; text-decoration: none;}
+	.nav a:hover, .nav .current{color: #f00; text-decoration: underline;}
+		.a{height: 200px; overflow: hidden; margin:10px auto; width: 1000px;}
+		.ab li{height: 198px; width: 200px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center;}
+		#marquee_1, #marquee_2, li{float: left;}
+	</style>
+</head>
+<body>
+	<div class="nav"><a href="http://caibaojian.com/">前端博客</a><a href="http://caibaojian.com/scrollForever" target="blank">插件使用介绍</a><a href="index.html">无缝滚动插件版</a><a href="index1.html" class="current">无缝向左1</a><a href="index2.html">无缝向左2</a><a href="index3.html">无缝向上</a><a href="index4.html">间断向左</a><a href="index5.html">间断向上</a></div>
+	<div class="a">
+		<div class="ab">
+			<ul id="marquee_1">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ul>
+			<ul id="marquee_2"></ul>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// var time1 = new Date;
+		var li = $("#marquee_1").find("li");
+		var w = li.size() * li.outerWidth();
+		console.log(w);
+		$(".ab").css("width",w*2);
+		var _html = $("#marquee_1").html();
+		$("#marquee_2").html(_html);
+		function autoScroll(){
+			var s = $(".a").scrollLeft();
+			if(s >= w){
+				$(".a").scrollLeft(0);
+			}else{
+				$(".a").scrollLeft(s + 1);
+			}
+		}
+		var _scrolling = setInterval(autoScroll, 20);
+		$(".a").hover(function(){
+			clearInterval(_scrolling);
+		},function(){
+			_scrolling = setInterval(autoScroll,20);
+		})
+		// console.log("耗时：" + (new Date - time1) + " 毫秒");
+	})
+
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=15910806" charset="UTF-8"></script>
+</body>
+</html>

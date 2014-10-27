@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery无缝滚动插件</title>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	ul{list-style: none;}
+	.nav{max-width: 800px; margin: 0 auto; padding:20px 0; display: flex; flex-flow:row wrap; justify-content:space-around; border-bottom: 1px solid #ddd;}
+	.nav a{font-size: 14px; color: #333; text-decoration: none;}
+	.nav a:hover, .nav .current{color: #f00; text-decoration: underline;}
+	.a{height: 200px; width:800px; overflow: hidden; margin:10px auto;}
+	.a li{height: 198px; width: 198px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center; float: left;}
+	.b{height: 400px; overflow: hidden; width: 200px; margin-left:auto; margin-right: auto;}
+	.b-con div{width: 198px; height: 198px; border: 1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center;}
+	.c{height: 200px; width:490px; overflow: hidden; margin: 10px auto; position: relative;}
+	.c li{width:490px; height: 200px; text-align: center; float: left;}
+	.c .paged{position: absolute; bottom:0; left: 0; width: 100%; height: 20px; padding-top: 5px; padding-bottom: 5px; background: rgba(0,0,0,0.6); color: #333; text-align: center; }
+	.c .paged span{padding: 0 4px; line-height: 20px; background:#fff; margin-right: 10px;}
+	.d{height: 200px; width: 600px; overflow: hidden; margin: 10px auto;}
+	.d li{width: 598px; height: 198px; border: 1px solid #ddd;}
+	</style>
+</head>
+<body>
+	<div class="nav"><a href="http://caibaojian.com/">前端博客</a><a href="http://caibaojian.com/scrollForever" target="blank">插件使用介绍</a><a href="index.html" class="current">无缝滚动插件版</a><a href="index1.html">无缝向左1</a><a href="index2.html">无缝向左2</a><a href="index3.html">无缝向上</a><a href="index4.html">间断向左</a><a href="index5.html">间断向上</a></div>
+	<div class="a" id="a1">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+	</div>
+	<div class="b" id="b1">
+		<div class="b-con">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+		</div>
+	</div>
+	<div class="a" id="a2">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+	</div>
+	<div class="b" id="b2">
+		<div class="b-con">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+		</div>
+	</div>
+	<div class="c" id="c1">
+		<ul>
+			<li><img src="img/1.jpg" /></li>
+			<li><img src="img/2.jpg" /></li>
+			<li><img src="img/3.jpg" /></li>
+		</ul>
+		<div class="paged"><span>1</span><span>2</span><span>3</span></div>
+	</div>
+	<div class="d" id="d1">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="scrollForever.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// var time1 = new Date;
+		$("#a1").scrollForever();
+		$("#b1").scrollForever({dir:"top",container:".b-con",inner:"div"});
+		$("#a2").scrollForever({continuous:false,num:2});
+		$("#b2").scrollForever({dir:"top",container:".b-con",inner:"div",continuous:false});
+		$("#c1").scrollForever({continuous:false});
+		$("#d1").scrollForever({continuous:false,dir:'top'});
+		// console.log("耗时：" + (new Date - time1) + " 毫秒");
+	});
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=15910806" charset="UTF-8"></script>
+</body>
+</html>

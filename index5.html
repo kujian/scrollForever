@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery无缝滚动插件</title>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	ul{list-style: none;}
+	.nav{max-width: 800px; margin: 0 auto; padding:20px 0; display: flex; flex-flow:row wrap; justify-content:space-around; border-bottom: 1px solid #ddd;}
+	.nav a{font-size: 14px; color: #333; text-decoration: none;}
+	.nav a:hover, .nav .current{color: #f00; text-decoration: underline;}
+	.a{height: 200px; width:800px; overflow: hidden; margin:10px auto;}
+	.a li{height: 198px; width: 198px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center; float: left;}
+	.b{height: 400px; overflow: hidden; width: 200px; margin-left:auto; margin-right: auto;}
+	.b-con div{width: 198px; height: 198px; border: 1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center;}
+	</style>
+</head>
+<body>
+	<div class="nav"><a href="http://caibaojian.com/">前端博客</a><a href="http://caibaojian.com/scrollForever" target="blank">插件使用介绍</a><a href="index.html">无缝滚动插件版</a><a href="index1.html">无缝向左1</a><a href="index2.html">无缝向左2</a><a href="index3.html">无缝向上</a><a href="index4.html">间断向左</a><a href="index5.html" class="current">间断向上</a></div>
+	<div class="b">
+		<div class="b-con">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	jQuery.fn.extend({
+		marqueeTop:function (options){
+			var defaults = {container:"ul",inner:"li",placeholder:0}
+			var opts = $.extend({}, defaults,options);
+			$(this).each(function(){
+				var obj = $(this);
+				var ul = obj.find(opts.container);
+				var li = ul.find(opts.inner);
+				var placeholder = opts.placeholder == 0 ? li.outerHeight() : opts.placeholder;
+				var w = (li.size() +1) * li.outerHeight();
+				ul.css('height',w);
+				function autoScroll(){
+					ul.animate({marginTop:'-'+placeholder},1000,function(){
+						ul.css({marginTop:0}).find(opts.inner+':first').appendTo(ul);
+					});
+				}
+				var scrolling = setInterval(autoScroll,2000);
+				obj.hover(function(){
+					clearInterval(scrolling);
+				},function(){
+					scrolling = setInterval(autoScroll,2000);
+				});
+				
+			});
+		}
+	});
+	$(function(){
+		$(".b").marqueeTop({container:".b-con",inner:"div",placeholder:'200px'});
+	});
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=15910806" charset="UTF-8"></script>
+</body>
+</html>

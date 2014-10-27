@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>无缝不间断向左滚动</title>
+	<style type="text/css">
+	*{margin:0; padding: 0;}
+	ul{list-style: none;}
+	.nav{max-width: 800px; margin: 0 auto; padding:20px 0; display: flex; flex-flow:row wrap; justify-content:space-around; border-bottom: 1px solid #ddd;}
+	.nav a{font-size: 14px; color: #333; text-decoration: none;}
+	.nav a:hover, .nav .current{color: #f00; text-decoration: underline;}
+		.a{height: 200px; overflow: hidden; margin:10px auto;}
+		li{height: 198px; width: 200px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center; float: left;}
+	</style>
+</head>
+<body>
+	<div class="nav"><a href="http://caibaojian.com/">前端博客</a><a href="http://caibaojian.com/scrollForever" target="blank">插件使用介绍</a><a href="index.html">无缝滚动插件版</a><a href="index1.html">无缝向左1</a><a href="index2.html" class="current">无缝向左2</a><a href="index3.html">无缝向上</a><a href="index4.html">间断向左</a><a href="index5.html">间断向上</a></div>
+	<div class="a">
+		<ul id="marquee_1">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	jQuery.fn.extend({
+        pic_scroll:function (){
+            $(this).each(function(){
+                var _this=$(this);//存储对象
+                var ul=_this.find("ul");//获取ul对象
+                var li=ul.find("li");//获取所有图片所有的li
+                var w=li.size()*li.outerWidth();//统计图片的长度
+                li.clone().prependTo(ul);//克隆图片一份放入ul里
+                ul.width(2*w);//设置ul的长度，使所有图片排成一排
+                var i=1,l;
+                _this.hover(function(){i=0},function(){i=1});//鼠标经过时设置i=0达到鼠标经过停止效果
+                function autoScroll(){
+                	l = _this.scrollLeft();
+                	if(l>=w){
+                		_this.scrollLeft(0);
+                	}else{
+                		_this.scrollLeft(l + i);
+                	}
+                }
+                var scrolling = setInterval(autoScroll,20);
+            })
+        }
+    });
+	$(function(){
+		// var time1 = new Date;
+		$(".a").pic_scroll();
+		// console.log("耗时：" + (new Date - time1) + " 毫秒");
+	})
+
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=15910806" charset="UTF-8"></script>
+</body>
+</html>
