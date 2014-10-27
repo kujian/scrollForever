@@ -53,7 +53,7 @@ CSS代码
 | innner      | 'li'          | the children element      |
 | speed       | 1000          | speed                     |
 | delayTime   | 0             | scroll delaytime          |
-| num         | 1             |                           |
+| num         | 1             | scroll num                |
 
 中文用户请看本站介绍：http://caibaojian.com/scrollforever 
 
