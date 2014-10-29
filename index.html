@@ -1,129 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<title>jQuery无缝滚动插件</title>
-	<style type="text/css">
-	*{margin:0; padding: 0;}
-	ul{list-style: none;}
-	.nav{max-width: 800px; margin: 0 auto; padding:20px 0; display: flex; flex-flow:row wrap; justify-content:space-around; border-bottom: 1px solid #ddd;}
-	.nav a{font-size: 14px; color: #333; text-decoration: none;}
-	.nav a:hover, .nav .current{color: #f00; text-decoration: underline;}
-	.a{height: 200px; width:800px; overflow: hidden; margin:10px auto;}
-	.a li{height: 198px; width: 198px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center; float: left;}
-	.b{height: 400px; overflow: hidden; width: 200px; margin-left:auto; margin-right: auto;}
-	.b-con div{width: 198px; height: 198px; border: 1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center;}
-	.c{height: 200px; width:490px; overflow: hidden; margin: 10px auto; position: relative;}
-	.c li{width:490px; height: 200px; text-align: center; float: left;}
-	.c .paged{position: absolute; bottom:0; left: 0; width: 100%; height: 20px; padding-top: 5px; padding-bottom: 5px; background: rgba(0,0,0,0.6); color: #333; text-align: center; }
-	.c .paged span{padding: 0 4px; line-height: 20px; background:#fff; margin-right: 10px;}
-	.d{height: 200px; width: 600px; overflow: hidden; margin: 10px auto;}
-	.d li{width: 598px; height: 198px; border: 1px solid #ddd;}
-	</style>
+	<link rel="stylesheet" href="doc.css"/>
 </head>
 <body>
-	<div class="nav"><a href="http://caibaojian.com/">前端博客</a><a href="http://caibaojian.com/scrollForever" target="blank">插件使用介绍</a><a href="index.html" class="current">无缝滚动插件版</a><a href="index1.html">无缝向左1</a><a href="index2.html">无缝向左2</a><a href="index3.html">无缝向上</a><a href="index4.html">间断向左</a><a href="index5.html">间断向上</a></div>
-	<div class="a" id="a1">
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
-			<li>7</li>
-			<li>8</li>
-			<li>9</li>
-			<li>10</li>
-			<li>11</li>
-			<li>12</li>
-		</ul>
+	<div class="header">
+		<h1>scrollForever.js</h1>
 	</div>
-	<div class="b" id="b1">
-		<div class="b-con">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-			<div>10</div>
-			<div>11</div>
-			<div>12</div>
+	<div class="main">
+		<h2 class="hentry">A simple jQuery plugin that quicky builds scrolling element forever</h2>
+		<ul class="feature-btn">
+			<li><a href="http://caibaojian.com/scrollforever" target="_blank">博客介绍</a></li>
+			<li><a href="http://github.com/kujian/scrollForever" target="_blank">Fork the Repo</a></li>
+		</ul>
+		<div class="article">
+			<h3>插件概述</h3>
+			<p>scrollForever 是一个支持连续无缝滚动和非连续滚动的插件，支持向上和向左滚动，你可以自由设置滚动间隔和速度等</p>
+			<h3>插件特色</h3>
+			<div class="feature" id="feature">
+				<ul class="feature-list">
+					<li class="step">
+						<h4>快速部署</h4>
+						<p>只需要引入插件，并在底部添加相应的代码即可</p>
+					</li>
+					<li class="config">
+						<h4>功能齐全</h4>
+						<p>你能想到的，这个插件都能帮你做到，熟悉参数帮助你更快的上手</p>
+					</li>
+					<li class="code">
+						<h4>代码精简</h4>
+						<p>只要2k的代码就能完成无缝滚动，包括连续滚动和非连续滚动</p>
+					</li>
+				</ul>
+			</div>
+			<h3>演示例子</h3>
+			<div class="a" id="a1">
+				<ul>
+					<li><a href=""><img src="img/1.jpg" alt="默认连续滚动"></a></li>
+					<li><a href=""><img src="img/2.jpg" alt="默认连续滚动"></a></li>
+					<li><a href=""><img src="img/3.jpg" alt="默认连续滚动"></a></li>
+				</ul>
+			</div>
+			<div class="b" id="b1">
+				<div class="b-con">
+					<div><a href=""><img src="img/1.jpg" alt="设置不连续滚动"></a></div>
+					<div><a href=""><img src="img/1.jpg" alt="设置不连续滚动"></a></div>
+					<div><a href=""><img src="img/1.jpg" alt="设置不连续滚动"></a></div>
+				</div>
+			</div>
+			<p class="text-center"><a class="demolink" href="http://caibaojian.com/demo/scrollforever/index0.html" target="_blank">无缝滚动插件版</a><a class="demolink black" href="http://caibaojian.com/demo/scrollforever/index1.html" target="_blank">无缝向左1</a><a href="http://caibaojian.com/demo/scrollforever/index2.html" class="demolink blue" target="_blank">无缝向左2</a><a class="demolink green" href="http://caibaojian.com/demo/scrollforever/index3.html" target="_blank">无缝向上</a><a class="demolink" href="http://caibaojian.com/demo/scrollforever/index4.html" target="_blank">间断向左</a><a class="demolink blue" href="http://caibaojian.com/demo/scrollforever/index5.html" target="_blank">间断向上</a></p>
+			<h3>使用方法</h3>
+			<div class="usage">
+			<input type="radio" id="js" name="cc" checked="checked">
+			<input type="radio" id="html" name="cc">
+			<input type="radio" id="css" name="cc"/>
+			<label for="js">Js</label><label for="html">HTML</label><label for="css">CSS</label>
+			<pre class="js-code"><code>&lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="scrollForever.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+$(function(){
+$("#a1").scrollForever();
+})
+&lt;/script&gt;</code></pre>
+			<pre class="html-code"><code>&lt;div class="a" id="a1"&gt;
+&lt;ul&gt;
+&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;5&lt;/li&gt;
+&lt;li&gt;6&lt;/li&gt;
+&lt;li&gt;7&lt;/li&gt;
+&lt;li&gt;8&lt;/li&gt;
+&lt;li&gt;9&lt;/li&gt;
+&lt;li&gt;10&lt;/li&gt;
+&lt;li&gt;11&lt;/li&gt;
+&lt;li&gt;12&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+			<pre class="css-code"><code>.b{height: 170px; overflow: hidden; width: 490px; margin-left:auto; margin-right: auto;}
+.b-con div{}</code></pre>
+</div>
+			<h3>参数介绍</h3>
+<div class="table-container">
+<table class="table">
+<thead>
+<tr>
+<td>参数名</td>
+<td>默认值</td>
+<td>描述</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>continuous</td>
+<td>true</td>
+<td>是否连续</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>0</td>
+<td>非连续滚动时每次的滑动距离，可以自定义，如果没有自定义则根据子元素和滚动数量来决定</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>'left'</td>
+<td>滚动方面，可以为left和top</td>
+</tr>
+<tr>
+<td>container</td>
+<td>'ul'</td>
+<td>外层元素</td>
+</tr>
+<tr>
+<td>innner</td>
+<td>'li'</td>
+<td>子元素</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>1000</td>
+<td>非连续滚动速度</td>
+</tr>
+<tr>
+<td>delayTime</td>
+<td>0</td>
+<td>滚动间隔，非连续滚动为2000ms,连续滚动为20ms,可以自定义</td>
+</tr>
+<tr>
+<td>num</td>
+<td>1</td>
+<td>非连续一次滚动的数量</td>
+</tr>
+</tbody>
+</table>
+</div>
 		</div>
 	</div>
-	<div class="a" id="a2">
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
-			<li>7</li>
-			<li>8</li>
-			<li>9</li>
-			<li>10</li>
-			<li>11</li>
-			<li>12</li>
-		</ul>
-	</div>
-	<div class="b" id="b2">
-		<div class="b-con">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-			<div>10</div>
-			<div>11</div>
-			<div>12</div>
-		</div>
-	</div>
-	<div class="c" id="c1">
-		<ul>
-			<li><img src="img/1.jpg" /></li>
-			<li><img src="img/2.jpg" /></li>
-			<li><img src="img/3.jpg" /></li>
-		</ul>
-		<div class="paged"><span>1</span><span>2</span><span>3</span></div>
-	</div>
-	<div class="d" id="d1">
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
-			<li>7</li>
-			<li>8</li>
-			<li>9</li>
-			<li>10</li>
-			<li>11</li>
-			<li>12</li>
-		</ul>
-	</div>
-	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="scrollForever.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		// var time1 = new Date;
-		$("#a1").scrollForever();
-		$("#b1").scrollForever({dir:"top",container:".b-con",inner:"div"});
-		$("#a2").scrollForever({continuous:false,num:2});
-		$("#b2").scrollForever({dir:"top",container:".b-con",inner:"div",continuous:false});
-		$("#c1").scrollForever({continuous:false});
-		$("#d1").scrollForever({continuous:false,dir:'top'});
-		// console.log("耗时：" + (new Date - time1) + " 毫秒");
-	});
+		$('#feature').scrollForever({delayTime:30});
+		$("#a1").scrollForever({continuous:false,speed:1500});
+		$("#b1").scrollForever({continuous:false,dir:"top",container:".b-con",inner:"div",delayTime:3000});
+	})
 	</script>
 	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=15910806" charset="UTF-8"></script>
 </body>

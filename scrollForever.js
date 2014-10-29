@@ -27,31 +27,45 @@
 			var container = obj.find(opts.container);
 			var inner = container.find(opts.inner);
 			var len = inner.length;
-			var distance, scrollDistance, scrollTime;
+			var distance, scrollDistance, scrollTime, resizeTimer, cloneFlag=true, innerWidth, innerHeight;
 			//滚动前的准备工作
 			function setScroll() {
+				innerWidth = inner.outerWidth();
+				innerHeight = inner.outerHeight();
 				if (opts.continuous) {
 					if (dir == 'left') {
-						distance = inner.outerWidth() * len;
+						distance = innerWidth * len;
 						container.css('width', 2 * distance);
-						inner.clone().appendTo(container);
+						if(cloneFlag){
+							inner.clone().appendTo(container);
+							cloneFlag = false;
+						}
 					} else if (dir == 'top') {
-						distance = inner.outerHeight() * len;
+						distance = innerHeight * len;
 						container.css('height', 2 * distance);
-						inner.clone().appendTo(container);
+						if(cloneFlag){
+							inner.clone().appendTo(container);
+							cloneFlag = false;
+						}
 					}
 				} else {
 					if (dir == 'left') {
-						placeHolder = placeHolder != 0 ? placeHolder : inner.outerWidth() * num;
-						distance = inner.outerWidth() * (len + 1);
+						placeHolder = placeHolder != 0 ? placeHolder : innerWidth * num;
+						distance = innerWidth * (len + 1);
 						container.css('width', distance);
 					} else if (dir == 'top') {
-						placeHolder = placeHolder != 0 ? placeHolder : inner.outerHeight() * num;
-						distance = inner.outerHeight() * (len + 1);
+						placeHolder = placeHolder != 0 ? placeHolder : innerHeight * num;
+						distance = innerHeight * (len + 1);
 						container.css('height', distance);
+
 					}
 				}
 			}
+			
+			$(window).on("resize",function(){
+				clearTimeout(resizeTimer);
+				resizeTimer =  setTimeout(setScroll,250);
+			})
 			setScroll();
 			function autoScroll() {
 
