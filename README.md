@@ -7,7 +7,7 @@ jQuery scrollForever plugin
 - plugin name: scrollForever
 - plugin author: caibaojian
 - plugin url: http://caibaojian.com/scrollForever
-- plugin demo: http://caibaojian.com/demo/scrollForever/
+- plugin demo: http://caibaojian.com/demo/scrollforever/
 - license: MIT
 
 ##How it work
