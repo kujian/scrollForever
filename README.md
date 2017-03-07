@@ -1,9 +1,7 @@
 scrollForever
 =============
 
-jQuery scrollForever plugin
-
-
+jQuery无缝滚动插件
 - plugin name: scrollForever
 - plugin author: caibaojian
 - plugin url: http://caibaojian.com/scrollForever
