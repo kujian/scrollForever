@@ -18,30 +18,30 @@ jQuery scrollForever plugin
 .a li{height: 198px; width: 198px; border:1px solid #ddd; line-height: 2.4; font-size: 30px; text-align: center; float: left;}
 </style>
 
-&lt;div class="a" id="a1"&gt;
-&lt;ul&gt;
-&lt;li&gt;1&lt;/li&gt;
-&lt;li&gt;2&lt;/li&gt;
-&lt;li&gt;3&lt;/li&gt;
-&lt;li&gt;4&lt;/li&gt;
-&lt;li&gt;5&lt;/li&gt;
-&lt;li&gt;6&lt;/li&gt;
-&lt;li&gt;7&lt;/li&gt;
-&lt;li&gt;8&lt;/li&gt;
-&lt;li&gt;9&lt;/li&gt;
-&lt;li&gt;10&lt;/li&gt;
-&lt;li&gt;11&lt;/li&gt;
-&lt;li&gt;12&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+<div class="a" id="a1">
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+<li>12</li>
+</ul>
+</div>
 
-&lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="scrollForever.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="scrollForever.js"></script>
+<script type="text/javascript">
 $(function(){
 $("#a1").scrollForever();
 })
-&lt;/script&gt;
+</script>
 ```
 
 
