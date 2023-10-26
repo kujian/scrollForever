@@ -1,8 +1,8 @@
 (function($) {
 	// plugin name: scrollForever
 	// plugin author: caibaojian
-	// plugin url: http://caibaojian.com/scrollForever
-	// plugin demo: http://caibaojian.com/demo/scrollForever/
+	// plugin url: https://qdkfweb.cn/scrollForever
+	// plugin demo: https://qdkfweb.cn/demo/scrollForever/
 	// license: MIT
 	$.fn.scrollForever = function(options) {
 		var defaults = {

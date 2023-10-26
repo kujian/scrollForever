@@ -4,8 +4,8 @@ scrollForever
 jQuery无缝滚动插件
 - plugin name: scrollForever
 - plugin author: caibaojian
-- plugin url: http://caibaojian.com/scrollForever
-- plugin demo: http://caibaojian.com/demo/scrollforever/
+- plugin url: https://qdkfweb.cn/scrollForever
+- plugin demo: https://qdkfweb.cn/demo/scrollforever/
 - license: MIT
 
 ## How it work
@@ -58,7 +58,7 @@ $("#a1").scrollForever();
 | delayTime   | 0             | scroll delaytime          |
 | num         | 1             | scroll num                |
 
-中文用户请看本站介绍：http://caibaojian.com/scrollforever 
+中文用户请看本站介绍：https://qdkfweb.cn/scrollforever 
 
 ## 如果觉得有用的话，请下载的同时点一下Star和Fork，您的支持是我努力的动力。
 
